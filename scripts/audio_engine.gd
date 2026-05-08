@@ -64,6 +64,8 @@ func _process(_delta: float) -> void:
 		return
 
 	var note_period_frames := int(MIX_RATE * 60.0 / _current_bpm)
+	if note_period_frames < 2:
+		note_period_frames = 2
 	var buf := PackedVector2Array()
 	buf.resize(frames_available)
 

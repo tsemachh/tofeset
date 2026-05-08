@@ -2,8 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://match" path="res://scenes/match.tscn" id="1"]
 
-[node name="Main" type="Node2D" unique_id=2134429841]
-scale = Vector2(0.94479173, 3.4544764)
+[node name="Main" type="Node2D"]
 
-[node name="Match" parent="." unique_id=1553442189 instance=ExtResource("1")]
-scale = Vector2(1, 1.2289747)
+[node name="Match" parent="." instance=ExtResource("1")]

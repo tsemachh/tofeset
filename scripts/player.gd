@@ -32,9 +32,7 @@ func init_trail(parent: Node) -> void:
 
 func _update_trail_width() -> void:
 	if _trail:
-		var gs := get_global_transform().get_scale()
-		var sy := maxf(gs.y, 0.001)
-		_trail._line.width = DOT_RADIUS * 2.0 / sy
+		_trail._line.width = DOT_RADIUS * 2.0
 
 func setup(p_role: Role, p_color: Color, p_heading: Vector2) -> void:
 	role = p_role
@@ -93,12 +91,7 @@ func _handle_input() -> bool:
 	return false
 
 func _draw() -> void:
-	var gs := get_global_transform().get_scale()
-	var sx := maxf(gs.x, 0.001)
-	var sy := maxf(gs.y, 0.001)
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2(1.0 / sx, 1.0 / sy))
-	draw_circle(Vector2.ZERO, DOT_RADIUS * minf(sx, sy), _current_color)
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	draw_circle(Vector2.ZERO, DOT_RADIUS, _current_color)
 
 func eliminate(cause: StringName) -> void:
 	if not alive:
